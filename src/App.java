@@ -8,6 +8,7 @@ public class App {
         Scanner console = new Scanner(System.in);
         // git test 
         // git branch test 
+        // merge conflit
         boolean flag = true;
         // ask user input 
         while (flag) {
