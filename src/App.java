@@ -7,8 +7,8 @@ public class App {
         // init scanner object 
         Scanner console = new Scanner(System.in);
         // git test 
-        // git branch test here too
-        // add something here
+        // git branch test 
+        // merge conflit
         boolean flag = true;
         // ask user input 
         while (flag) {
