@@ -6,7 +6,7 @@ public class App {
         double amount = 0;
         // init scanner object 
         Scanner console = new Scanner(System.in);
-        
+        // git test 
         boolean flag = true;
         // ask user input 
         while (flag) {
