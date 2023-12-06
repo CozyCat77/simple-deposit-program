@@ -6,18 +6,15 @@ public class App {
         double amount = 0;
         // init scanner object 
         Scanner console = new Scanner(System.in);
-        // git test 
-        // git branch test 
-        // merge conflit
         boolean flag = true;
         // ask user input 
         while (flag) {
             // ask user options
-            System.out.println("Enter a number: ");
             System.out.println("1. view balance.");
             System.out.println("2. deposit");
             System.out.println("3. withdrawal");
             System.out.println("4. quit program");
+            System.out.print("Enter a number to continue: ");
             int choice = console.nextInt();
             switch(choice) {
                 case 1:
