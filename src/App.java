@@ -9,12 +9,7 @@ public class App {
         boolean flag = true;
         // ask user input 
         while (flag) {
-            // ask user options
-            System.out.println("1. view balance.");
-            System.out.println("2. deposit");
-            System.out.println("3. withdrawal");
-            System.out.println("4. quit program");
-            System.out.print("Enter a number to continue: ");
+            printMenu();
             int choice = console.nextInt();
             switch(choice) {
                 case 1:
@@ -47,5 +42,15 @@ public class App {
                     System.out.println("choice not found");
             }
         }
+    }
+
+    // break down the operations into functions 
+    static void printMenu() {
+            // ask user options
+            System.out.println("1. view balance.");
+            System.out.println("2. deposit");
+            System.out.println("3. withdrawal");
+            System.out.println("4. quit program");
+            System.out.print("Enter a number to continue: ");        
     }
 }
