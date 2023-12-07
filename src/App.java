@@ -12,29 +12,36 @@ public class App {
             Scanner console = new Scanner(System.in);
             double amount = 0;
             printMenu();
-            int choice = console.nextInt();
-            if (choice == 1) {
-                showBalance(balance);
-            } else if (choice == 2) {
-                System.out.println("enter amount to deposit: ");
-                amount = console.nextDouble();
-                if(deposit(amount, balance) != 0) {
-                    balance = deposit(amount, balance);
-                } else {
-                    System.out.println("something went wrong...");
-                }
-            } else if (choice == 3) {
-                System.out.println("enter amount to withdrwal: ");
-                amount = console.nextDouble();
-                if (withdrawal(balance, amount) != 0) {
-                    balance = withdrawal(balance, amount);
-                } else {
-                    System.out.println("something went wrong...");
-                }
-            } else if (choice == 4) {
-                System.out.println("program end");
-                flag = false;
+            try {
+                int choice = console.nextInt();
+                if (choice == 1) {
+                    showBalance(balance);
+                } else if (choice == 2) {
+                    System.out.println("enter amount to deposit: ");
+                    amount = console.nextDouble();
+                    if(deposit(amount, balance) != 0) {
+                        balance = deposit(amount, balance);
+                    } else {
+                        System.out.println("something went wrong...");
+                    }
+                } else if (choice == 3) {
+                    System.out.println("enter amount to withdrwal: ");
+                    amount = console.nextDouble();
+                    if (withdrawal(balance, amount) != 0) {
+                        balance = withdrawal(balance, amount);
+                    } else {
+                        System.out.println("something went wrong...");
+                    }
+                } else if (choice == 4) {
+                    System.out.println("program end");
+                    flag = false;
+                } 
+            } catch(InputMismatchException e) {
+                System.out.println("plese enter the number shown on screen");
+            } catch(Exception e) {
+                System.out.println("something went wrong");
             }
+            
         }
     }
 
