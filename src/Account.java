@@ -4,16 +4,24 @@ public class Account {
     // balance
     // password
     // contact
-    String username = "Lisa";
-    double balance = 10000;
-    String password = "787877lisa";
-    String contact = "lisaluv@hotmail.com";
+    private String username;
+    private double balance;
+    private String contact;
+    private String password;
+
+    // add constructor 
+    Account(String username, double balance, String password, String contact) {
+        this.username = username;
+        this.balance = balance;
+        this.password = password;
+        this.contact = contact;
+    }
 
     void showBalance() {
-        System.out.println("current balance: " + balance);
+        
     }
 
     void showContact() {
-        System.out.println("contact info: " + contact);
+        
     }
 }
