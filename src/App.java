@@ -40,8 +40,7 @@ public class App {
                 System.out.println("plese enter the number shown on screen");
             } catch(Exception e) {
                 System.out.println("something went wrong");
-            }
-            
+            } 
         }
     }
 
