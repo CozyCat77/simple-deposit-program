@@ -17,12 +17,17 @@ public class Account {
         this.contact = contact;
     }
 
+    // getter 
     public String getName() {return username;}
     public String getContact() {return contact;}
     public double getBalance() {return balance;}
     public String getPassword() {return password;}
+    // setter
+    public void setName(String name) {this.username = name;}
+    public void setContact(String contact) {this.contact = contact;}
+    public void setPassword(String password) {this.password = password;}
+    public void setBalance(double balance) {this.balance += balance;}
 
-    
 
 
 }
