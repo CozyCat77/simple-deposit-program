@@ -10,18 +10,19 @@ public class Account {
     private String password;
 
     // add constructor 
-    Account(String username, double balance, String password, String contact) {
+    public Account(String username, double balance, String password, String contact) {
         this.username = username;
         this.balance = balance;
         this.password = password;
         this.contact = contact;
     }
 
-    void showBalance() {
-        
-    }
+    public String getName() {return username;}
+    public String getContact() {return contact;}
+    public double getBalance() {return balance;}
+    public String getPassword() {return password;}
 
-    void showContact() {
-        
-    }
+    
+
+
 }

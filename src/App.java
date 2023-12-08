@@ -3,11 +3,6 @@ public class App {
     // public static double balance = 10;
     public static void main(String[] args) throws Exception {
 
-        Account user01 = new Account();
-        Account user02 = new Account();
-        user02.username = "Leya";
-        System.out.println(user02.username);
-        user01.showBalance();
         // program allow user to make deposit, withdrawal or check balance
         // double amount = 0;
         // init scanner object 
