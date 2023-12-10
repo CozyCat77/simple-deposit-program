@@ -27,7 +27,7 @@ public class Account {
     public void setContact(String contact) {this.contact = contact;}
     public void setPassword(String password) {this.password = password;}
     public void setBalance(double balance) {this.balance += balance;}
-
-
+    void login() {System.out.println("account login");}
+    void register() {System.out.println("account register");}
 
 }
