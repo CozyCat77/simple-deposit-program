@@ -33,6 +33,13 @@ public class Account {
     public void setContact(String contact) {this.contact = contact;}
     public void setPassword(String password) {this.password = password;}
     public void setBalance(double balance) {this.balance += balance;}
+    public void setGender(String gender) {this.gender = gender;};
+
+    // toString 
+    public String toString() {
+        return "\n" + "Username: " + this.username + "\n" + "contact: " + this.contact + "\n" +"gender: " + this.gender 
+        + "\n" + "balance: " + this.balance + "\n";
+    }
     boolean login() {return true;}
     boolean register() {return true;}
 

@@ -2,77 +2,64 @@ import java.util.*;
 public class App {
     // public static double balance = 10;
     public static void main(String[] args) throws Exception {
-
-        // program allow user to make deposit, withdrawal or check balance
-        // double amount = 0;
-        // init scanner object 
-        double balance = 1000;
+        // create account object 
+        Scanner console = new Scanner(System.in);
+        ArrayList<Account> accounts = new ArrayList<Account>();
         boolean flag = true;
-        // main loop ask user input 
-        while (flag) {
-            Scanner console = new Scanner(System.in);
-            double amount = 0;
-            printMenu();
-            try {
-                int choice = console.nextInt();
-                if (choice == 1) {
-                    showBalance(balance);
-                } else if (choice == 2) {
-                    System.out.println("enter amount to deposit: ");
-                    amount = console.nextDouble();
-                    if(deposit(amount, balance) != 0) {
-                        balance = deposit(amount, balance);
-                    } else {
-                        System.out.println("something went wrong...");
-                    }
-                } else if (choice == 3) {
-                    System.out.println("enter amount to withdrwal: ");
-                    amount = console.nextDouble();
-                    if (withdrawal(balance, amount) != 0) {
-                        balance = withdrawal(balance, amount);
-                    } else {
-                        System.out.println("something went wrong...");
-                    }
-                } else if (choice == 4) {
-                    System.out.println("program end");
-                    flag = false;
-                } 
-            } catch(InputMismatchException e) {
-                System.out.println("plese enter the number shown on screen");
-            } catch(Exception e) {
-                System.out.println("something went wrong");
-            } 
+        while(flag) {
+            homePageMenu();
+            int userInput = console.nextInt();
+            if (userInput == 1) {
+                Account user = new Account(null, 0, null, null, null);
+                createAccount(console, user);
+                accounts.add(user);
+                
+            } else if (userInput == 2) {
+
+            } else if(userInput == 3) {
+                flag = false;
+            } else if(userInput == 4) {
+                for(Object obj : accounts) {
+                    System.out.println(obj.toString());
+                }
+            }
         }
     }
-
-    // break down the operations into functions 
-    static void printMenu() {
-            // ask user options
-        System.out.println("1. view balance.");
-        System.out.println("2. deposit");
-        System.out.println("3. withdrawal");
-        System.out.println("4. quit program");
-        System.out.print("Enter a number to continue: ");        
+    static void homePageMenu() {
+        System.out.println("1. Create account.");
+        System.out.println("2. Login");
+        System.out.println("3. quit system");
+        System.out.println("4 dispaly all accounts");
     }
 
-    // add deposit, withdrawal and showBalance functions
-    static void showBalance(double balance) {
-        System.out.println(balance);
+    static void createAccount(Scanner console, Account user) {
+        // set name
+        System.out.println("Enter your name: ");
+        String name = console.next();
+        user.setName(name);
+        // set gender
+        System.out.println("Enter your gender: ");
+        String gender = console.next();
+        user.setGender(gender);
+        // set email 
+        System.out.println("Enter your contact (email)");
+        String email = console.next();
+        user.setContact(email);
+        // set password 
+        System.out.println("Enter your password");
+        String password = console.next();
+        user.setPassword(password);
+        // set default balance
+        System.out.println("Enter your balance");
+        double balance = console.nextDouble();
+        user.setBalance(balance);
+        // output info for confirmation 
+        System.out.println("================ confirm information ================");
+        System.out.println(user.toString());
+        System.out.println("=====================================================");
     }
 
-    static double deposit(double amount, double balance) {
-        if (amount > 0) {
-            return balance += amount;
-        } else {
-            return 0;
-        }
-    }
+    static void isUniqueUserName(ArrayList<Account> accounts) {
 
-    static double withdrawal(double balance, double amount) {
-        if (balance > amount && amount > 0) {
-            return balance -= amount;
-        } else {
-            return 0;
-        }
     }
 }
