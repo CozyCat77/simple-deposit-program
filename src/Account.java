@@ -1,4 +1,8 @@
 public class Account {
+    // static method and property 
+    static {
+
+    }
     // attributes for deposit account
     // username
     // balance
@@ -8,13 +12,14 @@ public class Account {
     private double balance;
     private String contact;
     private String password;
-
+    private String gender;
     // add constructor 
-    public Account(String username, double balance, String password, String contact) {
+    public Account(String username, double balance, String password, String contact, String gender) {
         this.username = username;
         this.balance = balance;
         this.password = password;
         this.contact = contact;
+        this.gender = gender;
     }
 
     // getter 
@@ -22,12 +27,13 @@ public class Account {
     public String getContact() {return contact;}
     public double getBalance() {return balance;}
     public String getPassword() {return password;}
+    public String getGender() {return gender;}
     // setter
     public void setName(String name) {this.username = name;}
     public void setContact(String contact) {this.contact = contact;}
     public void setPassword(String password) {this.password = password;}
     public void setBalance(double balance) {this.balance += balance;}
-    void login() {System.out.println("account login");}
-    void register() {System.out.println("account register");}
+    boolean login() {return true;}
+    boolean register() {return true;}
 
 }
