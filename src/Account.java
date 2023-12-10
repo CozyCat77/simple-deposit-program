@@ -9,7 +9,7 @@ public class Account {
     // password
     // contact
     private String username;
-    private double balance;
+    private double balance=0.0;
     private String contact;
     private String password;
     private String gender;
@@ -40,7 +40,7 @@ public class Account {
         return "\n" + "Username: " + this.username + "\n" + "contact: " + this.contact + "\n" +"gender: " + this.gender 
         + "\n" + "balance: " + this.balance + "\n";
     }
-    boolean login() {return true;}
-    boolean register() {return true;}
+    // boolean login() {return true;}
+    // boolean register() {return true;}
 
 }

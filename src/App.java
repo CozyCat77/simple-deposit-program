@@ -22,10 +22,26 @@ public class App {
                 System.out.println("enter your password");
                 password = console.next();
                 // System.out.println(email + " " + password);
-                if(findMatchUserName(accounts, email, password)) {
+                Account matchUser = findMatchUserName(accounts, email, password);
+                if(matchUser != null) {
                     boolean flag01 = true;
                     while(flag01) {
                         userPageMenu();
+                        int userPageInput = console.nextInt();
+                        if (userPageInput == 1) {
+                            System.out.println(matchUser.getBalance());
+                            
+                        } else if (userPageInput == 2) {
+                            System.out.println("enter amount to deposit");
+                            int amount = console.nextInt();
+                            matchUser.setBalance(amount);;
+                        } else if (userPageInput == 3) {
+                            System.out.println("enter amount to withdrwal");
+                            int amount = console.nextInt();
+                            matchUser.setBalance(-amount);
+                        } else if(userPageInput == 4) {
+                            flag01 = false;
+                        }
                     }
                 } else {
                     System.out.println("username or password not correct");
@@ -79,14 +95,14 @@ public class App {
         System.out.println("=====================================================");
     }
 
-    static Boolean findMatchUserName(ArrayList<Account> accounts, String email, String password) {
+    static Account findMatchUserName(ArrayList<Account> accounts, String email, String password) {
         // System.out.println(email + " " + password);
         for (Object obj : accounts) {
             if(((Account) obj).getContact().equals(email) && ((Account) obj).getPassword().equals(password)) {
-                return true;
+                return ((Account) obj);
             } 
         }
-        return false;
+        return ((Account) null);
     }
     static void isUniqueUserName(ArrayList<Account> accounts) {
 
