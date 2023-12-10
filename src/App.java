@@ -10,8 +10,9 @@ public class App {
             homePageMenu();
             int userInput = console.nextInt();
             if (userInput == 1) {
+                // create account
                 Account user = new Account(null, 0, null, null, null);
-                createAccount(console, user);
+                createAccount(console, user, accounts);
                 accounts.add(user);
             } else if (userInput == 2) {
                 // ask username and password input 
@@ -22,24 +23,29 @@ public class App {
                 System.out.println("enter your password");
                 password = console.next();
                 // System.out.println(email + " " + password);
+                // validate user login
                 Account matchUser = findMatchUserName(accounts, email, password);
                 if(matchUser != null) {
                     boolean flag01 = true;
+                    // main user page 
                     while(flag01) {
                         userPageMenu();
                         int userPageInput = console.nextInt();
                         if (userPageInput == 1) {
+                            // show balance 
                             System.out.println(matchUser.getBalance());
-                            
                         } else if (userPageInput == 2) {
+                            // deposit method 
                             System.out.println("enter amount to deposit");
                             int amount = console.nextInt();
                             matchUser.setBalance(amount);;
                         } else if (userPageInput == 3) {
+                            // withdrawal method
                             System.out.println("enter amount to withdrwal");
                             int amount = console.nextInt();
                             matchUser.setBalance(-amount);
                         } else if(userPageInput == 4) {
+                            // log out
                             flag01 = false;
                         }
                     }
@@ -47,9 +53,11 @@ public class App {
                     System.out.println("username or password not correct");
                 }
             } else if(userInput == 3) {
+                // quit program
                 flag = false;
             } else if(userInput == 4) {
                 for(Object obj : accounts) {
+                    // display user info
                     System.out.println(obj.toString());
                 }
             }
@@ -68,7 +76,7 @@ public class App {
         System.out.println("3. withdrawal");
         System.out.println("4. logout");
     }
-    static void createAccount(Scanner console, Account user) {
+    static void createAccount(Scanner console, Account user, ArrayList<Account> accounts) {
         // set name
         // System.out.println("Enter your name: ");
         // String name = console.next();
@@ -78,9 +86,20 @@ public class App {
         // String gender = console.next();
         // user.setGender(gender);
         // set email 
-        System.out.println("Enter your contact (email)");
-        String email = console.next();
-        user.setContact(email);
+        // System.out.println("Enter your contact (email)");
+        // String email = console.next();
+        boolean Unique = false;
+        String email;
+        while(!Unique) {
+            System.out.println("Enter your contact (email)");
+            email = console.next();
+            Unique = isUniqueEmail(accounts, email);
+            if(Unique) {
+                user.setContact(email);
+            } else {
+                System.out.println("email already in use");
+            }
+        }
         // set password 
         System.out.println("Enter your password");
         String password = console.next();
@@ -104,7 +123,19 @@ public class App {
         }
         return ((Account) null);
     }
-    static void isUniqueUserName(ArrayList<Account> accounts) {
 
+    static boolean isUniqueEmail(ArrayList<Account> accounts, String email) {
+        
+        if(accounts.isEmpty()) {
+            return true;
+        } else {
+            // check if email already exist
+            for (Object obj : accounts) {
+                if(((Account) obj).getContact().equals(email)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
