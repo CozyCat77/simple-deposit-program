@@ -2,6 +2,7 @@ import java.util.*;
 public class App {
     // public static double balance = 10;
     public static void main(String[] args) throws Exception {
+
         // program allow user to make deposit, withdrawal or check balance
         // double amount = 0;
         // init scanner object 
