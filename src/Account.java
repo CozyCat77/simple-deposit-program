@@ -32,7 +32,25 @@ public class Account {
     public void setName(String name) {this.username = name;}
     public void setContact(String contact) {this.contact = contact;}
     public void setPassword(String password) {this.password = password;}
-    public void setBalance(double balance) {this.balance += balance;}
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    // deposit 
+    public boolean deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // withdrwal
+    public boolean withdrawal(double amount) {
+        if (this.balance > amount && amount > 0) {
+            this.balance -= amount;
+            return true;
+        } return false;
+    }
     public void setGender(String gender) {this.gender = gender;};
 
     // toString 

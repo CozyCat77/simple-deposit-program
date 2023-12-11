@@ -38,12 +38,21 @@ public class App {
                             // deposit method 
                             System.out.println("enter amount to deposit");
                             int amount = console.nextInt();
-                            matchUser.setBalance(amount);;
+                            // matchUser.setBalance(amount);;
+                            if(matchUser.deposit(amount)) {
+                                System.out.println("deposit success");
+                            } else {
+                                System.out.println("deposit failed");
+                            }
                         } else if (userPageInput == 3) {
                             // withdrawal method
                             System.out.println("enter amount to withdrwal");
                             int amount = console.nextInt();
-                            matchUser.setBalance(-amount);
+                            if(matchUser.withdrawal(amount)) {
+                                System.out.println("withdrawal success");
+                            } else {
+                                System.out.println("withdrawal failed");
+                            }
                         } else if(userPageInput == 4) {
                             // log out
                             flag01 = false;
@@ -105,9 +114,9 @@ public class App {
         String password = console.next();
         user.setPassword(password);
         // set default balance
-        // System.out.println("Enter your balance");
-        // double balance = console.nextDouble();
-        // user.setBalance(balance);
+        System.out.println("how much would you like to deposit");
+        double balance = console.nextDouble();
+        user.setBalance(balance);
         // output info for confirmation 
         System.out.println("================ confirm information ================");
         System.out.println(user.toString());
